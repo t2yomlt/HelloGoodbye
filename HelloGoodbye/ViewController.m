@@ -8,22 +8,28 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
+@interface HelloGoodByeViewController ()
 @end
-
-@implementation ViewController
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-}
-
-- (void)didReceiveMemoryWarning
-{
+@implementation HelloGoodByeViewController
+    - (void)viewDidLoad {
+        [super viewDidLoad];
+        [self setState:Hello]; }
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Dispose of any resources     that can be recreated.
 }
 
+
+- (IBAction)push:(id)sender; {
+        switch ([self state]) {
+        case Hello:
+            [self setState:GoodBye];
+            [[self label] setText:@"Good Bye!"];
+                break;
+        case GoodBye:
+            [self setState:Hello];
+                [[self label] setText:@"Hello, World."];
+                break;
+        }
+    }
 @end
